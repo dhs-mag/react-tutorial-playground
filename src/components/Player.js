@@ -1,10 +1,9 @@
 import React from 'react'
 import Button from "./Button";
+import withCounter from "./hoc/WithCounter";
 
 const styles = {
     card: {
-        // height: '100%',
-        // width: '100%',
         display: 'flex',
         flex: '1 1 0',
         flexDirection: 'column',
@@ -12,38 +11,33 @@ const styles = {
         alignItems: 'center',
     },
     center: {
-        // textAlign: 'center',
         fontSize: '5rem'
     }
 };
 
-class Player extends React.PureComponent {
+const Player = (props) => (
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         counter: parseInt(props.hp)
+    //     }
+    // }
 
-    constructor(props){
-        super(props);
-        this.state = {
-            counter: parseInt(props.hp)
-        }
-    }
+    // increment = () => {
+    //     this.setState(prevState => ({counter: prevState.counter +1}))
+    // };
+    //
+    // decrement = () => {
+    //     this.setState(prevState => ({counter: prevState.counter -1}))
+    // };
 
-    increment = () => {
-        this.setState(prevState => ({counter: prevState.counter +1}))
-    };
-
-    decrement = () => {
-        this.setState(prevState => ({counter: prevState.counter -1}))
-    };
-
-    render() {
-        return (
-            <div style={{...styles.card,...this.props.styles, backgroundColor: this.props.color}}>
-                <Button onClick={this.increment} icon={'➕'} />
-                <span>{this.props.name}</span>
-                <div style={styles.center}>{this.state.counter}</div>
-                <Button onClick={this.decrement} icon={'➖'} />
+            <div style={{...styles.card,...props.styles, backgroundColor: props.color}}>
+                <Button onClick={props.onIncrement} icon={'➕'} />
+                <span>{props.name}</span>
+                <div style={styles.center}>{props.value}</div>
+                <Button onClick={props.onDecrement} icon={'➖'} />
             </div>
-        )
-    }
-}
+);
 
-export default Player
+
+export default withCounter(Player)

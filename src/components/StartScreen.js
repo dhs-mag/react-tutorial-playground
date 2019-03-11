@@ -105,7 +105,7 @@ class StartScreen extends React.PureComponent {
                 />
                 </div>
             </div>
-            <span onClick={this.submit} style={styles.button}>Play 🎮</span>
+            <span onClick={this.submit} style={styles.button} role='img' aria-label='play button'>Play 🎮</span>
         </>
         )
     }
