@@ -37,6 +37,7 @@ const CustomForm = (props) => (
             type={props.type}
             value={props.value}
             onChange={props.onChange}
+            {...props}
         />
     </div>
 );
@@ -73,16 +74,19 @@ class StartScreen extends React.PureComponent {
     render() {
         return (
             <>
+            <h1>Super Ultra HP Counter</h1><span>(such wow)</span>
             <div style={styles.container}>
                 <div style={styles.tab}>
                 <h2>Player One</h2>
                 <CustomForm
+                    data-cy={'player_1_name'}
                     label={'Enter player 1 name'}
                     type={'text'}
                     value={this.state.playerOne.name}
                     onChange={this.handleStateChange('playerOne', 'name')}
                 />
                 <CustomForm
+                    data-cy={'player_1_hp'}
                     label={'Enter player 1 hp'}
                     type={'number'}
                     value={this.state.playerOne.hp}
@@ -92,12 +96,14 @@ class StartScreen extends React.PureComponent {
                 <div style={styles.tab}>
                 <h2>Player Two</h2>
                 <CustomForm
+                    data-cy={'player_2_name'}
                     label={'Enter player 2 name'}
                     type={'text'}
                     value={this.state.playerTwo.name}
                     onChange={this.handleStateChange('playerTwo', 'name')}
                 />
                 <CustomForm
+                    data-cy={'player_2_hp'}
                     label={'Enter player 2 hp'}
                     type={'number'}
                     value={this.state.playerTwo.hp}
@@ -105,7 +111,7 @@ class StartScreen extends React.PureComponent {
                 />
                 </div>
             </div>
-            <span onClick={this.submit} style={styles.button} role='img' aria-label='play button'>Play 🎮</span>
+            <span onClick={this.submit} style={styles.button} role='img' aria-label='play button'>Start 🎮</span>
         </>
         )
     }

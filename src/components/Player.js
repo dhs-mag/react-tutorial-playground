@@ -32,10 +32,10 @@ const Player = (props) => (
     // };
 
             <div style={{...styles.card,...props.styles, backgroundColor: props.color}}>
-                <Button onClick={props.onIncrement} icon={'➕'} />
-                <span>{props.name}</span>
-                <div style={styles.center}>{props.value}</div>
-                <Button onClick={props.onDecrement} icon={'➖'} />
+                <Button onClick={props.onIncrement} icon={'➕'} data-cy={'inc_'+props.id} />
+                <span data-cy={"name_"+props.id}>{props.name}</span>
+                <div style={styles.center} data-cy={'val_'+props.id}>{props.value}</div>
+                <Button onClick={props.onDecrement} icon={'➖'} data-cy={'dec_'+props.id} />
             </div>
 );
 

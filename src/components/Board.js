@@ -36,12 +36,14 @@ class Board extends React.PureComponent {
             <>
                 <div style={this.getStyles()}>
                     <Player
+                        id={'1'}
                         name={this.props.playerOne.name}
                         hp={this.props.playerOne.hp}
                         styles={this.getInvertedStyles()}
                         color={'#44ff3f'}
                     />
                     <Player
+                        id={'2'}
                         name={this.props.playerTwo.name}
                         hp={this.props.playerTwo.hp}
                         color={'#ff546c'}
