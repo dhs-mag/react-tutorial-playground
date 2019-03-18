@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const styles = {
     container: {
@@ -21,12 +22,9 @@ const styles = {
         width: '120px',
         textAlign: "center",
         background: "#81b2ff",
-        border: 0,
-        borderRadius: 0,
-        boxShadow: 'none',
         padding: '1em',
-        cursor: 'pointer',
         fontSize: '2rem',
+        textDecoration: 'none',
     }
 };
 
@@ -43,6 +41,7 @@ const CustomForm = (props) => (
 );
 
 class StartScreen extends React.PureComponent {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -65,10 +64,6 @@ class StartScreen extends React.PureComponent {
                 [attr]: e.target.value
             }
         }))
-    };
-
-    submit = () => {
-        this.props.onSubmit(this.state)
     };
 
     render() {
@@ -111,7 +106,18 @@ class StartScreen extends React.PureComponent {
                 />
                 </div>
             </div>
-            <span onClick={this.submit} style={styles.button} role='img' aria-label='play button'>Start 🎮</span>
+            <Link to={{
+                pathname: "/board",
+                state: {
+                    playerOne: this.state.playerOne,
+                    playerTwo: this.state.playerTwo
+                }
+            }}
+                  style={styles.button}
+                  role='img'
+                  aria-label='play button'>
+                Start <span>🎮</span>
+            </Link>
         </>
         )
     }
