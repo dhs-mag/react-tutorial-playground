@@ -22,7 +22,7 @@ class Board extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+            isMobile: !window.matchMedia("(min-width: 769px)").matches
         }
     }
 
