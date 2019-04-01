@@ -71,7 +71,7 @@ class Board extends React.PureComponent {
                     pathname: "/",
                     state: null
                 }}>
-                    <span>🔙</span>
+                    <span role="img" aria-label={"Back button"}>🔙</span>
                 </Link>
                 <div style={this.getStyles()}>
                     <Player
