@@ -13,10 +13,26 @@ const styles = {
 };
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            hp: 0,
+        }
+    }
+
+    handleInputChange = (e) => {
+        let inputName = e.target.name;
+        this.setState({
+            [inputName]: e.target.value
+        })
+    };
+
     render() {
         return (
             <div style={styles.container}>
-                <PlayerForm/>
+                <PlayerForm onInputChange={this.handleInputChange}/>
                 <Player/>
             </div>
         );
