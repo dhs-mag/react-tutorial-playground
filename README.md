@@ -27,15 +27,21 @@ vytvor counter s tlacitkama na incrementaci a dekrementaci hodnoty countru
 ## Kapitola 2
 vytvor formular s dvema inputy na jmeno a pocet zivotu 
 ## Kapitola 3
-do countru pridej zadane jmeno a pocet zivotu pres props
+ziskej z forulare informace a predej je do state predka
 ## Kapitola 4
-vyuzij stavajici komponentu countru a a formulare a vytvor i druheho hrace
+pridej conditional rendering counteru + button k odstartovani + do countru pridej zadane jmeno a pocet zivotu pres props
 ## Kapitola 5
-rozdel formular a hraci plochu na samostatne stranky a pridej tlacitko zpet na hraci plochu
+vyuzij stavajici komponentu countru a a formulare a vytvor i druheho hrace (predej data-cy), for cyklus (map)
 ## Kapitola 6
-pridej responsivni zobrazeni pro mobilni zarizeni, kde hraci plocha bude v jednom slupci rozdelenem napul a jednu pulku otoc
+rozdel formular a hraci plochu na samostatne stranky a pridej tlacitko zpet na hraci plochu
 ## Kapitola 7
-vsimni si, ze se opakuje counter, udelej z nej hoc
+pridej responsivni zobrazeni pro mobilni zarizeni, kde hraci plocha bude v jednom slupci rozdelenem napul a jednu pulku otoc
 ## Kapitola 8
+vsimni si, ze counter micha pocitaci logiku a vzhled, vydel z nej hoc
+## Kapitola 9
 v realne aplikaci je routovani slozitejsi a je vyhodne ho resit externim nastrojem. Naistaluj si balicek `react-router` a zapoj ho do aplikace
+predavej vychozi stavy v route
+## Kapitola 10
+Build a pochlub se mamince <3
+
 yarn run kap_8 
