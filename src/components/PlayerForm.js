@@ -20,7 +20,7 @@ const PlayerForm = (props) => (
         </div>
         <div style={styles.formGroup}>
             <div>HP:</div>
-            <input name={'name'} type={'number'} data-cy="player-1-hp" />
+            <input name={'hp'} type={'number'} data-cy="player-1-hp" />
         </div>
     </div>
 );
