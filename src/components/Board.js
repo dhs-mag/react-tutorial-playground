@@ -1,6 +1,6 @@
 import React from "react";
 import Player from "./Player";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 const styles = {
     container: {
@@ -33,6 +33,7 @@ class Board extends React.PureComponent {
         super(props);
         this.state = {
             isMobile: !window.matchMedia("(min-width: 769px)").matches,
+            redirect: false,
             playerOne: {
                 name: '',
                 hp: 20,
@@ -43,20 +44,40 @@ class Board extends React.PureComponent {
             },
         };
 
-        if (props.location.state && props.location.state.playerOne){
-            this.state = {
-                ...this.state,
-                playerOne: props.location.state.playerOne
-            }
+        let params = new URLSearchParams(props.location.search);
+        let player = {
+            one: null,
+            two: null
+        };
+
+        try{
+            player.one = JSON.parse(params.get("playerOne"));
+            player.two = JSON.parse(params.get("playerTwo"));
+        } catch (e) {
+            this.state.redirect = true;
         }
 
-        if (props.location.state && props.location.state.playerTwo){
+        if (Board.isValidParamJSON(player.one)){
             this.state = {
                 ...this.state,
-                playerTwo: props.location.state.playerTwo
+                playerOne: player.one
             }
+        } else {
+            this.state.redirect = true;
         }
 
+        if (Board.isValidParamJSON(player.two)){
+            this.state = {
+                ...this.state,
+                playerTwo: player.two
+            }
+        } else {
+            this.state.redirect = true;
+        }
+    }
+
+    static isValidParamJSON(json){
+        return json !== null && json.name !== undefined && json.hp !== undefined;
     }
 
     getStyles = () => this.state.isMobile ? {...styles.container, ...styles.mobileContainer} : styles.container;
@@ -64,9 +85,16 @@ class Board extends React.PureComponent {
 
     getInvertedStyles = () => this.state.isMobile ? styles.inverted : {};
 
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/' />
+        }
+    };
+
     render() {
         return (
             <>
+                {this.renderRedirect()}
                 <Link style={styles.floatButton} to={{
                     pathname: "/",
                     state: null

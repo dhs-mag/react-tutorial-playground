@@ -138,10 +138,7 @@ class StartScreen extends React.PureComponent {
             </div>
             <Link to={{
                 pathname: "/board",
-                state: {
-                    playerOne: this.state.playerOne,
-                    playerTwo: this.state.playerTwo
-                }
+                search: `?playerOne=${JSON.stringify(this.state.playerOne)}&playerTwo=${JSON.stringify(this.state.playerTwo)}`
             }}
                   style={styles.button}
                   role='img'
