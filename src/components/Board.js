@@ -80,6 +80,7 @@ class Board extends React.PureComponent {
                         hp={this.state.playerOne.hp}
                         styles={this.getInvertedStyles()}
                         color={'#44ff3f'}
+                        cy='player-2'
                     />
                     <Player
                         id={'2'}

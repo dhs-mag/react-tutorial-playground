@@ -31,7 +31,7 @@ const Player = (props) => (
     //     this.setState(prevState => ({counter: prevState.counter -1}))
     // };
 
-            <div style={{...styles.card,...props.styles, backgroundColor: props.color}}>
+            <div style={{...styles.card,...props.styles, backgroundColor: props.color}} data-cy={props.cy}>
                 <Button onClick={props.onIncrement} icon={'➕'} data-cy={'inc_'+props.id} />
                 <span data-cy={"name_"+props.id}>{props.name}</span>
                 <div style={styles.center} data-cy={'val_'+props.id}>{props.value}</div>

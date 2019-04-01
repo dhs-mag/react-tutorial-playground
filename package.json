@@ -3,16 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-router-dom": "^4.4.0",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
+    "react-router-dom": "5.0.0",
     "react-scripts": "2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "cypress open",
-    "eject": "react-scripts eject"
+    "test_1": "cypress run --spec cypress/integration/kap_1.js",
+    "test_2": "cypress run --spec cypress/integration/kap_2.js",
+    "test_3": "cypress run --spec cypress/integration/kap_3.js",
+    "test_4": "cypress run --spec cypress/integration/kap_4.js",
+    "test_5": "cypress run --spec cypress/integration/kap_5.js",
+    "test_6": "cypress run --config viewportWidth=600 --spec cypress/integration/kap_6.js",
+    "test_7": "cypress run --spec cypress/integration/kap_7.js",
+    "test_8": "cypress run --spec cypress/integration/kap_8.js",
+    "cy:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,7 +30,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "3.0.0",
-    "readline": "^1.3.0"
+    "cypress": "3.0.1",
+    "readline": "1.3.0"
   }
 }
