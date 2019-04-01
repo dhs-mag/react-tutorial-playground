@@ -19,3 +19,23 @@ You will also see any lint errors in the console.
 ### `yarn run test`
 
 Launches the cypress test runner. New window should pop-up. Select test (integrationTest.spec.js) and watch tests running<br>
+
+# Tutorial
+Aplikace pocita zivoty hracu
+## Kapitola 1
+vytvor counter s tlacitkama na incrementaci a dekrementaci hodnoty countru
+## Kapitola 2
+vytvor formular s dvema inputy na jmeno a pocet zivotu 
+## Kapitola 3
+do countru pridej zadane jmeno a pocet zivotu pres props
+## Kapitola 4
+vyuzij stavajici komponentu countru a a formulare a vytvor i druheho hrace
+## Kapitola 5
+rozdel formular a hraci plochu na samostatne stranky a pridej tlacitko zpet na hraci plochu
+## Kapitola 6
+pridej responsivni zobrazeni pro mobilni zarizeni, kde hraci plocha bude v jednom slupci rozdelenem napul a jednu pulku otoc
+## Kapitola 7
+vsimni si, ze se opakuje counter, udelej z nej hoc
+## Kapitola 8
+v realne aplikaci je routovani slozitejsi a je vyhodne ho resit externim nastrojem. Naistaluj si balicek `react-router` a zapoj ho do aplikace
+yarn run kap_8 

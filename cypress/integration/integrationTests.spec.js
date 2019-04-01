@@ -9,11 +9,12 @@ describe('Test StartingScreen', ()=>{
         cy.get('h1');
     });
     it('can not fill wrong inputs', ()=>{
-        cy.get('[data-cy=player_1_hp]')
-            .type("{selectall}{backspace}adsf12a")
+        cy.get('[data-cy=player_1_hp]').clear()
+            .type("adsf12a")
             .should('have.value', '12');
         cy.get('[data-cy=player_2_hp]')
-            .type("{selectall}{backspace}asdcxw")
+            .clear()
+            .type("asdcxw")
             .should('have.value', '');
         // cy.contains('Start').click();
     });
