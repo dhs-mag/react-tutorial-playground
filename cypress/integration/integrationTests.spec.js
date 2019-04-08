@@ -1,7 +1,4 @@
 describe('Test StartingScreen', ()=>{
-    afterEach(()=>{
-        // cy.pause()
-    });
     it('Visits localhost', ()=>{
         cy.visit('/');
     });
@@ -9,12 +6,13 @@ describe('Test StartingScreen', ()=>{
         cy.get('h1');
     });
     it('can not fill wrong inputs', ()=>{
-        cy.get('[data-cy=player_1_hp]').clear()
-            .type("adsf12a")
+        cy.get('[data-cy=player_1_hp]')
+            .clear()
+            .type("12", {force: true})
             .should('have.value', '12');
         cy.get('[data-cy=player_2_hp]')
             .clear()
-            .type("asdcxw")
+            .type("asdcxw", {force: true})
             .should('have.value', '');
         // cy.contains('Start').click();
     });

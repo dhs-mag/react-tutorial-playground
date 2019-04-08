@@ -85,13 +85,17 @@ class StartScreen extends React.PureComponent {
 
     handleStateChange = (key, attr) => (e) => {
         e.persist();
-        this.setState(prevState =>({
+        this.setState(prevState => ({
             [key]: {
                 ...prevState[key],
                 [attr]: e.target.value
             }
         }))
     };
+
+    getUrlToBoard(){
+        return `/board/${this.state.playerOne.name}🎲${this.state.playerOne.hp}/${this.state.playerTwo.name}🎲${this.state.playerTwo.hp}`;
+    }
 
     render() {
         return (
@@ -100,52 +104,51 @@ class StartScreen extends React.PureComponent {
                     <h1>Super Ultra HP Counter</h1>
                     <span>(such wow)</span>
                 </div>
-            <div style={styles.container}>
-                <div style={{...styles.tab, borderColor: "#44ff3f", background: "#b5ffb3"}}>
-                    <h2 style={styles.tabHeader}>Player One</h2>
-                    <CustomForm
-                        data-cy={'player_1_name'}
-                        label={'Name:'}
-                        type={'text'}
-                        value={this.state.playerOne.name}
-                        onChange={this.handleStateChange('playerOne', 'name')}
-                    />
-                    <CustomForm
-                        data-cy={'player_1_hp'}
-                        label={'HP:'}
-                        type={'number'}
-                        value={this.state.playerOne.hp}
-                        onChange={this.handleStateChange('playerOne', 'hp')}
-                    />
+                <div style={styles.container}>
+                    <div style={{...styles.tab, borderColor: "#44ff3f", background: "#b5ffb3"}}>
+                        <h2 style={styles.tabHeader}>Player One</h2>
+                        <CustomForm
+                            data-cy={'player_1_name'}
+                            label={'Name:'}
+                            type={'text'}
+                            value={this.state.playerOne.name}
+                            onChange={this.handleStateChange('playerOne', 'name')}
+                        />
+                        <CustomForm
+                            data-cy={'player_1_hp'}
+                            label={'HP:'}
+                            type={'number'}
+                            value={this.state.playerOne.hp}
+                            onChange={this.handleStateChange('playerOne', 'hp')}
+                        />
+                    </div>
+                    <div style={{...styles.tab, borderColor: "#ff546c", background: "#ffb3be"}}>
+                        <h2>Player Two</h2>
+                        <CustomForm
+                            data-cy={'player_2_name'}
+                            label={'Name:'}
+                            type={'text'}
+                            value={this.state.playerTwo.name}
+                            onChange={this.handleStateChange('playerTwo', 'name')}
+                        />
+                        <CustomForm
+                            data-cy={'player_2_hp'}
+                            label={'HP:'}
+                            type={'number'}
+                            value={this.state.playerTwo.hp}
+                            onChange={this.handleStateChange('playerTwo', 'hp')}
+                        />
+                    </div>
                 </div>
-                <div style={{...styles.tab, borderColor: "#ff546c", background: "#ffb3be"}}>
-                    <h2>Player Two</h2>
-                    <CustomForm
-                        data-cy={'player_2_name'}
-                        label={'Name:'}
-                        type={'text'}
-                        value={this.state.playerTwo.name}
-                        onChange={this.handleStateChange('playerTwo', 'name')}
-                    />
-                    <CustomForm
-                        data-cy={'player_2_hp'}
-                        label={'HP:'}
-                        type={'number'}
-                        value={this.state.playerTwo.hp}
-                        onChange={this.handleStateChange('playerTwo', 'hp')}
-                    />
-                </div>
-            </div>
-            <Link to={{
-                pathname: "/board",
-                search: `?playerOne=${JSON.stringify(this.state.playerOne)}&playerTwo=${JSON.stringify(this.state.playerTwo)}`
-            }}
-                  style={styles.button}
-                  role='img'
-                  aria-label='play button'>
-                Start <span role="img" aria-label={"Start game"}>🎮</span>
-            </Link>
-        </>
+                <Link to={{
+                    pathname: this.getUrlToBoard(),
+                }}
+                      style={styles.button}
+                      role='img'
+                      aria-label='play button'>
+                    Start <span role="img" aria-label={"Start game"}>🎮</span>
+                </Link>
+            </>
         )
     }
 }
