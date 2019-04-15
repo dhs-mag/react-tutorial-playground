@@ -1,32 +1,34 @@
 import React, {Component} from 'react';
 import Player from "./components/Player";
-import PlayerForm from "./components/PlayerForm";
-
-const styles = {
-    container: {
-        display: 'flex',
-        padding: '2em',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: "center"
-    },
-};
+import StartScreen from "./components/StartScreen";
+import GameBoard from "./components/GameBoard";
 
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            hp: 0,
+            players: [
+                {
+                    name: '',
+                    hp: 0,
+                },
+                {
+                    name: '',
+                    hp: 0,
+                }
+            ],
             gameStarted: false
-        }
+        };
     }
 
-    handleInputChange = (e) => {
-        let inputName = e.target.name;
+    handlePlayerChange = (playerIndex, parameterName, newValue) => {
+
+        const newPlayers = this.state.players.slice();
+        newPlayers[playerIndex][parameterName] = newValue;
+
         this.setState({
-            [inputName]: e.target.value
+            players: newPlayers
         })
     };
 
@@ -36,14 +38,29 @@ class App extends Component {
         })
     };
 
+    backToStart = () => {
+        this.setState({
+            players: [
+                {
+                    name: '',
+                    hp: 0,
+                },
+                {
+                    name: '',
+                    hp: 0,
+                }
+            ],
+            gameStarted: false
+        })
+    };
+
     render() {
-        return (
-            <div style={styles.container}>
-                <PlayerForm onInputChange={this.handleInputChange}/>
-                <button onClick={this.startGame}>Start</button>
-                {this.state.gameStarted && <Player playerName={this.state.name} playerInitialHp={this.state.hp}/>}
-            </div>
-        );
+
+        if (this.state.gameStarted) {
+            return <GameBoard backToStart={this.backToStart} players={this.state.players}/>;
+        } else {
+            return <StartScreen onPlayerChange={this.handlePlayerChange} players={this.state.players} startGame={this.startGame}/>;
+        }
     }
 }
 
