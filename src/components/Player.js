@@ -1,4 +1,5 @@
 import React from 'react'
+import withCounter from "./hoc/WithCounter";
 
 const styles = {
     card: {
@@ -29,45 +30,25 @@ const colors = [
     "#ffb3be",
 ];
 
-class Player extends React.PureComponent {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            counter: parseInt(this.props.playerInitialHp)
-        }
-    }
-
-    increment = () => {
-        this.setState(prevState => ({counter: prevState.counter +1}))
-    };
-
-    decrement = () => {
-        this.setState(prevState => ({counter: prevState.counter -1}))
-    };
-
-    render() {
-        return (
-            <div style={{
-                ...styles.card,
-                ... { backgroundColor: colors[this.props.index]},
-                ...(this.props.useMobileStyles && this.props.index === 0 ? styles.inverted : {})
-            }}>
-                <button onClick={this.increment} data-cy="inc-1" style={styles.button}>
-                    <span role="img" aria-label="Plus">➕</span>
-                </button>
-                <div>
-                    <strong>Player: {this.props.playerName}</strong>
-                    <div style={styles.center} data-cy="val-1">
-                        {this.state.counter}
-                    </div>
-                </div>
-                <button onClick={this.decrement} data-cy="dec-1" style={styles.button}>
-                    <span role="img" aria-label="Minus">➖</span>
-                </button>
+const Player = (props) => (
+    <div style={{
+        ...styles.card,
+        ... { backgroundColor: colors[props.index]},
+        ...(props.useMobileStyles && props.index === 0 ? styles.inverted : {})
+    }}>
+        <button onClick={props.onIncrement} data-cy="inc-1" style={styles.button}>
+            <span role="img" aria-label="Plus">➕</span>
+        </button>
+        <div>
+            <strong>Player: {props.playerName}</strong>
+            <div style={styles.center} data-cy="val-1">
+                {props.value}
             </div>
-        )
-    }
-}
+        </div>
+        <button onClick={props.onDecrement} data-cy="dec-1" style={styles.button}>
+            <span role="img" aria-label="Minus">➖</span>
+        </button>
+    </div>
+);
 
-export default Player
+export default withCounter(Player);
