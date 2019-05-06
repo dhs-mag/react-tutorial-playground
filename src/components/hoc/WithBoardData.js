@@ -6,23 +6,34 @@ const WithBoardData = (Component) =>
         constructor(props) {
             super(props);
 
-            const playerOneParams = props.p1.split('🎲');
-            const playerTwoParams = props.p2.split('🎲');
-
             this.state = {
-                p1: {
-                    name: playerOneParams.length === 2 ? playerOneParams[0] : '',
-                    hp: playerOneParams.length === 2 ? playerOneParams[1] : 20,
-                },
-                p2: {
-                    name: playerTwoParams.length === 2 ? playerTwoParams[0] : '',
-                    hp: playerTwoParams.length === 2 ? playerTwoParams[1] : 20,
-                },
+                players: [
+                    {
+                        name: '',
+                        hp: 0,
+                    },
+                    {
+                        name: '',
+                        hp: 0,
+                    }
+                ],
             }
         }
 
+        handlePlayerChange = (playerIndex, parameterName, newValue) => {
+
+            const newPlayers = this.state.players.slice();
+            newPlayers[playerIndex][parameterName] = newValue;
+
+            this.setState({
+                players: newPlayers
+            })
+        };
+
+        getUrlToBoard = () => `/board/${this.state.players[0].name}🎲${this.state.players[0].hp}/${this.state.players[1].name}🎲${this.state.players[1].hp}`;
+
         render() {
-            return <Component p1={this.state.p1} p2={this.state.p2} />
+            return <Component onPlayerChange={this.handlePlayerChange} getUrlToBoard={this.getUrlToBoard} players={this.state.players} />
         }
     };
 
