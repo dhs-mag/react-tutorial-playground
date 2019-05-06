@@ -1,4 +1,8 @@
-describe('Test Counter', ()=>{
+describe('Test Counter', () => {
+    it('displays counter with increment and decrement buttons', () => {
+        cy.get('[data-cy=inc-1]').should('be.visible');
+        cy.get('[data-cy=dec-1]').should('be.visible');
+    });
     it('counts player hp correctly', () => {
         for (let i = 0; i < 10; i++) {
             cy.get('[data-cy=inc-1]').click();

@@ -18,9 +18,9 @@ describe('Test multi-components', ()=>{
     });
     it('fill out form', ()=>{
         cy.get('[data-cy=player-1-name]').type("Brett Broďák");
-        cy.get('[data-cy=player-1-hp]').type("{selectall}{backspace}15");
+        cy.get('[data-cy=player-1-hp]').clear().type("15");
         cy.get('[data-cy=player-2-name]').type("Riviera Kid");
-        cy.get('[data-cy=player-2-hp]').type("{selectall}{backspace}12");
+        cy.get('[data-cy=player-2-hp]').clear().type("12");
     });
     it('counts player hp correctly', () => {
         for (let i = 0; i < 10; i++) {

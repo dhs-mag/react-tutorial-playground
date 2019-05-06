@@ -4,9 +4,9 @@ describe('Test multi-components', ()=>{
     });
     it('Fill out form', ()=>{
         cy.get('[data-cy=player_1_name]').type("Brett Broďák");
-        cy.get('[data-cy=player_1_hp]').type("{selectall}{backspace}15");
+        cy.get('[data-cy=player_1_hp]').clear().type("15");
         cy.get('[data-cy=player_2_name]').type("Riviera Kid");
-        cy.get('[data-cy=player_2_hp]').type("{selectall}{backspace}12");
+        cy.get('[data-cy=player_2_hp]').clear().type("12");
         cy.contains('Start').click();
     });
     it('Show counters', () => {
