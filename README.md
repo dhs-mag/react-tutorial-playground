@@ -51,8 +51,10 @@ vsimni si, ze counter micha pocitaci logiku a vzhled, vydel z nej hoc
 ## Kapitola 8
 v realne aplikaci je routovani slozitejsi a je vyhodne ho resit externim nastrojem. Naistaluj si balicek `react-router` a zapoj ho do aplikace
 predavej vychozi stavy v route
-## Kapitola 9
-Build a pochlub se mamince <3
+## Kapitola 9 - BONUS
+Pouzij hooky - relativne novou vlasnost reactu - ke zjednodušení komponent se stavem
+## Kapitola 10
+Build a pochlub se mamince ❤
 
 yarn run kap_8 
 https://reacttraining.com/react-router/web/guides/quick-start
