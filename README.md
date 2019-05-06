@@ -47,13 +47,11 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/transform
 `window.matchMedia("(min-width: 769px)").matches` vraci `true` pokud aplikace bezi na mobilnim zarizeni
 rozdel formular a hraci plochu na samostatne stranky a pridej tlacitko zpet na hraci plochu
 ## Kapitola 7
-pridej responsivni zobrazeni pro mobilni zarizeni, kde hraci plocha bude v jednom slupci rozdelenem napul a jednu pulku otoc
-## Kapitola 8
 vsimni si, ze counter micha pocitaci logiku a vzhled, vydel z nej hoc
-## Kapitola 9
+## Kapitola 8
 v realne aplikaci je routovani slozitejsi a je vyhodne ho resit externim nastrojem. Naistaluj si balicek `react-router` a zapoj ho do aplikace
 predavej vychozi stavy v route
-## Kapitola 10
+## Kapitola 9
 Build a pochlub se mamince <3
 
 yarn run kap_8 
