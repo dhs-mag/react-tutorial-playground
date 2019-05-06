@@ -1,17 +1,6 @@
 import React from 'react'
 import Player from "./Player";
 
-// const styles = {
-//     floatButton: {
-//         position: 'fixed',
-//         fontSize: '2.5rem',
-//         left: 1,
-//         top: '50%',
-//         marginTop: '-1.75rem',
-//         zIndex: 2,
-//         textDecoration: 'none',
-//     }
-// };
 
 const styles = {
     container: {
