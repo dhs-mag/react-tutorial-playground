@@ -1,5 +1,7 @@
 import React from 'react';
 import PlayerForm from "./PlayerForm";
+import WithBoardData from "./hoc/WithBoardData";
+import {Link, NavLink} from "react-router-dom";
 
 const styles = {
     heading: {
@@ -23,7 +25,8 @@ const styles = {
         textDecoration: 'none',
         borderRadius: "5px",
         color: "white",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        width: "120px",
     }
 };
 
@@ -43,10 +46,10 @@ const StartScreen = (props) => (
                 <PlayerForm onInputChange={(e) => props.onPlayerChange(index, e.target.name, e.target.value)} playerIndex={index} key={index} color={colors[index]}/>
             )}
         </div>
-        <button onClick={props.startGame} style={styles.button}>
+        <Link style={styles.button} to={{pathname: props.getUrlToBoard()}}>
             Start <br /> <span role="img" aria-label={"Start game"}>🎮</span>
-        </button>
+        </Link>
     </>
     );
 
-export default StartScreen;
+export default WithBoardData(StartScreen);
